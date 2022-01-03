@@ -63,10 +63,6 @@ int main(int argc, const char * argv[]) {
         printf("fuck!\n");
     }
     
-    int a = 1;
-    int *p = &(++a);
-    printf("%p, %p\n", &a, p);
-    
     return 0;
 }
 
