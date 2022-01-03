@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
     printf("Hello, World!\n");
     //生成随机数种子，方便后面随机数调用
     srand((unsigned)time(NULL));
-    int maxSize = 100;
+    int maxSize = 10;
     int maxValue = 1000;
     int arrarySize = maxSize;
     int *arrary = gennerateArrary(maxSize, maxValue, &arrarySize);
