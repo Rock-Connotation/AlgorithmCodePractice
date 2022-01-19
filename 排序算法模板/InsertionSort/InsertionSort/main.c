@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+//#include "Base.h"
 ///生成随机数
 int * gennerateArrary(int maxSize, int maxValue, int *arrarySize);
 

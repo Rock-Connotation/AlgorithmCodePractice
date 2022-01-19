@@ -94,6 +94,7 @@ void merge(int ary[], int l, int r, int mid){
     for (int i = 0; i < (r-l+1); i++) {
         ary[l + i] = help[i];
     }
+    free(help);
 }
 
 void swap(int *a, int *b){
