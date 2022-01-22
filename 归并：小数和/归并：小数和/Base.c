@@ -6,8 +6,10 @@
 //
 
 #include "Base.h"
-
+#include <time.h>
+#include <stdlib.h>
 int * gennerateArrary(int maxSize, int maxValue, int *arrarySize){
+    srand((unsigned)time(NULL));
     //创建目标数组
         //1.生成随机数组长度
     *arrarySize = rand() % maxSize + 1;
