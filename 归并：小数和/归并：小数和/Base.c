@@ -34,6 +34,7 @@ void printArrary(int arrary[], int arrarySize){
     }
     printf("\n");
 }
+
 void swap(int *a, int *b){
     int temp = *a;
     *a = *b;
