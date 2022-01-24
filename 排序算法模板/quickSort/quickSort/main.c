@@ -37,7 +37,9 @@ void quickSortFirst(int *ary, int arySize){
 
 void quickSortSecond(int *ary, int l, int r){
     if (l < r) {
-//        swap(&ary[rand()%(r + 1 - l)], &ary[r]);
+//        swap(&ary[rand()%((r  - l + 1) + l)], &ary[r]);
+        //随即将 r 到 l之间的某个数和 r的数字进行交换，进行概率，将时间复杂度从N^2转换了NlogN
+        swap(&ary[rand() % (r - l + 1) + l], &ary[l]);
         int *tempAry = partation(ary, l, r);
         quickSortSecond(ary, l, tempAry[0] - 1);
         quickSortSecond(ary, tempAry[1] + 1, r);
