@@ -18,7 +18,12 @@ void heapInsert(int *ary, int index);
 
 void heapify(int *ary, int index, int size);
 int main(int argc, const char * argv[]) {
- 
+    int arySize = 10;
+    int *ary = gennerateArrary(10, 10,&arySize);
+    printArrary(ary, arySize);
+    heapSory(ary, arySize);
+    printArrary(ary, arySize);
+    
     return 0;
 }
 
@@ -32,23 +37,36 @@ void heapSory(int *ary, int arySize){
     
     //管理堆长度
     int heapSize = arySize;
-    swap(ary, ary+(--heapSize));
+    swap(&ary[0], &ary[--heapSize]);
     
     while (heapSize > 0) {
         heapify(ary, 0, heapSize);
-        swap(ary, ary+(--heapSize));
+        swap(&ary[0], &ary[--heapSize]);
     }
 }
 
 void heapInsert(int *ary, int index){
     //如果此节点的值大于父节点的的值，则进行交换
     while (ary[index] > ary[(index - 1) / 2]) {
-        swap(ary + index, ary + ((index - 1)/2));
+        swap(&ary[index], &ary[(index - 1) / 2]);
         index = (index - 1) / 2;
     }
 }
 
 void heapify(int *ary, int index, int size){
     int left = index * 2 + 1;   //左孩子
-    
+    //有左孩子的时候再heapify
+    while (left < size) {
+        //选择最大的孩子
+        int largest = left + 1 < size && ary[left + 1] > ary[left] ? left + 1 : left;
+        largest = ary[index] < ary[largest] ? largest : index;
+        if (largest == index) {
+            break;
+        }
+        swap(&ary[largest], &ary[index]);
+        
+        //向下遍历
+        index = left;
+        left = index * 2 + 1;
+    }
 }
